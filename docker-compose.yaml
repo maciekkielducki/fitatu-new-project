@@ -1,0 +1,16 @@
+version: "3.1"
+
+services:
+  database:
+    image: postgres
+    ports:
+      - "5439:5432"
+    environment:
+      POSTGRES_DB: fitatu
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: q1w2e3r4
+#
+#
+#      1. utwórz sobie folder z nazwą "docker-fitatu", wklej ten plik
+#      2. wpisz komendę "docker-compose build" - jeśli nie bedziesz miał zainstalowanego dockera to musisz zainstalować
+#      3. wpisz komendę "docker-compose up" - komenda uruchamia dockera z bazą danych postgres lokalnie, na porcie 5439 co jest w application.properties
