@@ -58,7 +58,7 @@ public class UserProductBatchService {
     }
 
     public void deleteUserProductBatch(UUID id) {
-        userProductBatchRepository.deleteUserProductBatch(id);
+        userProductBatchRepository.deleteUserProductBatchById(id);
     }
 
 

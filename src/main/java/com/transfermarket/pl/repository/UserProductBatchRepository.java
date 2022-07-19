@@ -11,5 +11,5 @@ import java.util.UUID;
 @Repository
 public interface UserProductBatchRepository extends JpaRepository<UserProductBatch, UUID> {
 
-    void deleteUserProductBatch(UUID id);
+    void deleteUserProductBatchById(UUID id);
 }
