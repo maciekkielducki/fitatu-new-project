@@ -8,9 +8,17 @@
 
             create table user_product_batch
             (
-                id uuid not null constraint product_info_pk
-                    primary key,
-
+            id uuid not null constraint user_product_batch_pk
+            primary key,
+            product_batch_id uuid not null
+            constraint product_batch_id_fkey
+            references product_batch
+            on delete cascade,
+            user_id uuid not null
+            constraint user_id_fkey
+            references "user"
+            on delete cascade
+            );
         </sql>
 
     </changeSet>

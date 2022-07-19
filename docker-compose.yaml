@@ -4,9 +4,9 @@ services:
   database:
     image: postgres
     ports:
-      - "5439:5432"
+      - "5433:5432"
     environment:
-      POSTGRES_DB: fitatu
+      POSTGRES_DB: fitatu_db
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: q1w2e3r4
 #
