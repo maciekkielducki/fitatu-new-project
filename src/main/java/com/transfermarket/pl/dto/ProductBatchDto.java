@@ -11,6 +11,7 @@ import java.util.UUID;
 @AllArgsConstructor
 @NoArgsConstructor
 public class ProductBatchDto {
+    private UUID userId;
     private Meal meal;
     private int grams;
     private UUID productId;

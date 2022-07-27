@@ -17,6 +17,7 @@ import java.util.UUID;
 @RequiredArgsConstructor
 public class ProductService {
 
+
     private final ProductInfoService productInfoService;
     private final ProductRepository productRepository;
 
@@ -54,7 +55,8 @@ public class ProductService {
     }
 
     public Product findById(UUID id) {
-        return productRepository.findById(id).orElseThrow(() -> new ProductNotFoundException("Product not found"));
+        return productRepository.findById(id).orElseThrow(()
+                -> new ProductNotFoundException("Product not found"));
     }
 
     public Product findByNameStartingWith(String name) {

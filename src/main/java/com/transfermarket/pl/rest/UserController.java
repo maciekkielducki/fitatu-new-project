@@ -1,10 +1,10 @@
 package com.transfermarket.pl.rest;
 
+import com.transfermarket.pl.dto.CreateUserRequest;
 import com.transfermarket.pl.entity.User;
+import com.transfermarket.pl.mapper.UserMapper;
 import com.transfermarket.pl.service.UserService;
-import liquibase.pro.packaged.U;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -18,6 +18,8 @@ public class UserController {
 
     private final UserService userService;
 
+    private final UserMapper userMapper;
+
     @GetMapping
     public ResponseEntity getAllUsers() {
         return new ResponseEntity(userService.getAllUsers(), HttpStatus.OK);
@@ -30,8 +32,11 @@ public class UserController {
     }
 
     @PostMapping
-    public ResponseEntity<User> addNewUser(@RequestBody User user) {
-        User newUser = userService.addNewUser(user);
+    public ResponseEntity<User> addNewUser(@RequestBody CreateUserRequest request) {
+        User mappedUser = userMapper.mapToNewUser(request);
+        User newUser = userService.addNewUser(mappedUser, request.getSex(), request.getWeight(),
+                request.getHeight(), request.getDateOfBirth());
+
         return new ResponseEntity<>(newUser, HttpStatus.CREATED);
     }
 

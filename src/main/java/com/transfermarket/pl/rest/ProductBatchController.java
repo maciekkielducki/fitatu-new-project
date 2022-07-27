@@ -19,12 +19,14 @@ public class ProductBatchController {
     private final ProductBatchService productBatchService;
 
     @GetMapping
-    public ResponseEntity getAllProductBatch() {
-        return new ResponseEntity(productBatchService.getAllProductBatch(), HttpStatus.OK);
+    public ResponseEntity findAllByUser(@RequestBody ProductBatchDto productBatchDto, @PathVariable UUID userId) {
+
+        return new ResponseEntity<>(productBatchService.findAllByUser(productBatchDto, userId), HttpStatus.OK);
     }
 
     @PostMapping("{userId}/users")
     public ResponseEntity<ProductBatch> addProductBatch(@RequestBody ProductBatchDto productBatchDto, @PathVariable UUID userId) {
+
         ProductBatch newProductBatch = productBatchService.addProductBatch(productBatchDto);
         return new ResponseEntity<>(newProductBatch, HttpStatus.CREATED);
 
@@ -35,4 +37,6 @@ public class ProductBatchController {
         productBatchService.deleteProductBatchById(id);
         return new ResponseEntity<>(HttpStatus.OK);
     }
+
+
 }
