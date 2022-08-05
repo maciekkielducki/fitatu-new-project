@@ -1,7 +1,5 @@
 package com.transfermarket.pl.entity;
 
-
-import liquibase.pro.packaged.E;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -10,19 +8,20 @@ import javax.persistence.*;
 import java.util.UUID;
 
 @Entity
-@Table
 @Data
 @NoArgsConstructor
-public class UserProductBatch {
+@Table(name = "user_info")
+public class UserInfo {
 
     @Id
-    @Column(name = "id", unique = true)
     @GeneratedValue(strategy = GenerationType.AUTO)
     private UUID id;
 
-    @ManyToOne
-    private User user;
+    @Enumerated
+    private Sex sex;
 
-    @ManyToOne
-    private ProductBatch productBatch;
+    private double weight;
+    private double height;
+    private double bmr;
+
 }

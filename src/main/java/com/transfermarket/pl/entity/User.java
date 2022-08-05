@@ -20,4 +20,8 @@ public class User {
     private String password;
     private Instant dateOfBirth;
 
+    @OneToOne
+    @JoinColumn(name = "user_info_id")
+    private UserInfo userInfo;
+
 }

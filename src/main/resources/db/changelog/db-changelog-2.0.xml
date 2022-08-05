@@ -6,19 +6,10 @@
     <changeSet id="1.0-1" author="maciek">
         <sql>
 
-            create table user_product_batch
-            (
-            id uuid not null constraint user_product_batch_pk
-            primary key,
-            product_batch_id uuid not null
-            constraint product_batch_id_fkey
-            references product_batch
-            on delete cascade,
-            user_id uuid not null
-            constraint user_id_fkey
-            references "user"
-            on delete cascade
-            );
+            alter table product_batch add column user_id uuid not null;
+            ALTER TABLE product_batch
+            ADD CONSTRAINT user_id_fkey
+            FOREIGN KEY (user_id) REFERENCES "user"(id);
         </sql>
 
     </changeSet>

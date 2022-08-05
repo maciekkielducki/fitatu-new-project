@@ -1,9 +1,11 @@
 package com.transfermarket.pl.service;
 
 
-import com.transfermarket.pl.dto.ProductBatchDto;
+import com.transfermarket.pl.dto.CreateProductBatchRequest;
+import com.transfermarket.pl.entity.Meal;
 import com.transfermarket.pl.entity.Product;
 import com.transfermarket.pl.entity.ProductBatch;
+import com.transfermarket.pl.entity.User;
 import com.transfermarket.pl.repository.ProductBatchRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -19,23 +21,25 @@ public class ProductBatchService {
 
     private final ProductBatchRepository productBatchRepository;
     private final ProductService productService;
+    private final UserService userService;
 
 
-    public List<ProductBatch> getAllProductBatch() {
-        return productBatchRepository.findAll();
+    public List<ProductBatch> findAllByUser(UUID userId) {
+        User user = userService.findById(userId);
+        return productBatchRepository.findAllByUser(user);
     }
 
-    public ProductBatch addProductBatch(ProductBatchDto productBatchDto) {
-        Product product = productService.findById(productBatchDto.getProductId());
-
-        ProductBatch productBatch = buildNewProductBatch(productBatchDto, product);
-
+    public ProductBatch addProductBatch(CreateProductBatchRequest createProductBatchRequest) {
+        Product product = productService.findById(createProductBatchRequest.getProductId());
+        User user = userService.findUserById(createProductBatchRequest.getUserId());
+        ProductBatch productBatch = buildNewProductBatch(createProductBatchRequest, product, user);
         return productBatchRepository.save(productBatch);
     }
 
-    private ProductBatch buildNewProductBatch(ProductBatchDto dto, Product product) {
+    private ProductBatch buildNewProductBatch(CreateProductBatchRequest dto, Product product, User user) {
         return ProductBatch.builder()
                 .id(UUID.randomUUID())
+                .user(user)
                 .product(product)
                 .grams(dto.getGrams())
                 .calories(product.getProductInfo().getCalories() * dto.getGrams() / 100)

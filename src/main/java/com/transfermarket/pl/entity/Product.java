@@ -1,6 +1,7 @@
 package com.transfermarket.pl.entity;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.RequiredArgsConstructor;
@@ -27,6 +28,7 @@ public class Product {
 
     @OneToOne
     @JoinColumn(name = "product_info_id")
+    @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
     private ProductInfo productInfo;
 
 }

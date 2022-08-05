@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
+
+    <changeSet id="1.0-1" author="maciek">
+        <sql>
+
+            create table user_info
+            (
+            id uuid not null constraint user_info_pk primary key,
+            sex varchar(10) not null,
+            weight decimal not null,
+            height decimal not null,
+            bmr decimal not null
+            );
+
+            alter table "user" add column user_info_id uuid not null;
+            ALTER TABLE "user"
+            ADD CONSTRAINT user_info_id_fkey
+            FOREIGN KEY (user_info_id) REFERENCES user_info(id);
+        </sql>
+
+    </changeSet>
+</databaseChangeLog>
