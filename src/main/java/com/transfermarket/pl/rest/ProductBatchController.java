@@ -1,14 +1,17 @@
 package com.transfermarket.pl.rest;
 
 
-import com.transfermarket.pl.dto.ProductBatchDto;
+import com.transfermarket.pl.dto.CreateProductBatchRequest;
 import com.transfermarket.pl.entity.ProductBatch;
+import com.transfermarket.pl.mapper.ProductBatchMapper;
 import com.transfermarket.pl.service.ProductBatchService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.Instant;
+import java.util.List;
 import java.util.UUID;
 
 @RestController
@@ -17,19 +20,20 @@ import java.util.UUID;
 public class ProductBatchController {
 
     private final ProductBatchService productBatchService;
+    private final ProductBatchMapper productBatchMapper;
 
-    @GetMapping
-    public ResponseEntity findAllByUser(@RequestBody ProductBatchDto productBatchDto, @PathVariable UUID userId) {
-
-        return new ResponseEntity<>(productBatchService.findAllByUser(productBatchDto, userId), HttpStatus.OK);
+    @GetMapping("/{userId}/users")
+    public ResponseEntity<Object> findAllByUser(@PathVariable UUID userId) {
+        List<ProductBatch> productBatchList = productBatchService.findAllByUser(userId);
+        return new ResponseEntity<>(productBatchMapper.mapToProductBatchDtos(productBatchList), HttpStatus.OK);
     }
 
-    @PostMapping("{userId}/users")
-    public ResponseEntity<ProductBatch> addProductBatch(@RequestBody ProductBatchDto productBatchDto, @PathVariable UUID userId) {
-
-        ProductBatch newProductBatch = productBatchService.addProductBatch(productBatchDto);
+    @PostMapping
+    public ResponseEntity<ProductBatch> addProductBatch(@RequestBody CreateProductBatchRequest request) {
+        //TODO mapper
+        ProductBatch mappedProductBatch = productBatchMapper.mapToNewProductBatch(request);
+        ProductBatch newProductBatch = productBatchService.addProductBatch(request);
         return new ResponseEntity<>(newProductBatch, HttpStatus.CREATED);
-
     }
 
     @DeleteMapping
@@ -37,6 +41,4 @@ public class ProductBatchController {
         productBatchService.deleteProductBatchById(id);
         return new ResponseEntity<>(HttpStatus.OK);
     }
-
-
 }

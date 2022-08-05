@@ -1,25 +1,18 @@
 package com.transfermarket.pl.service;
 
 
-import com.transfermarket.pl.dto.ProductBatchDto;
-import com.transfermarket.pl.dto.UserDto;
+import com.transfermarket.pl.dto.CreateProductBatchRequest;
+import com.transfermarket.pl.entity.Meal;
 import com.transfermarket.pl.entity.Product;
 import com.transfermarket.pl.entity.ProductBatch;
-import com.transfermarket.pl.entity.ProductInfo;
 import com.transfermarket.pl.entity.User;
 import com.transfermarket.pl.repository.ProductBatchRepository;
-import com.transfermarket.pl.repository.ProductRepository;
-import com.transfermarket.pl.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.PathVariable;
 
 import java.util.List;
-import java.util.Scanner;
 import java.util.UUID;
-import java.util.stream.Collectors;
 
 @Service
 @Slf4j
@@ -31,26 +24,19 @@ public class ProductBatchService {
     private final UserService userService;
 
 
-    public List<ProductBatch> findAllByUser(ProductBatchDto productBatchDto, UUID userId) {
-
+    public List<ProductBatch> findAllByUser(UUID userId) {
         User user = userService.findById(userId);
-
         return productBatchRepository.findAllByUser(user);
     }
 
-    public ProductBatch addProductBatch(ProductBatchDto productBatchDto) {
-
-        Product product = productService.findById(productBatchDto.getProductId());
-
-        User user = userService.findUserById(productBatchDto.getUserId());
-
-        ProductBatch productBatch = buildNewProductBatch(productBatchDto, product, user);
-
-
+    public ProductBatch addProductBatch(CreateProductBatchRequest createProductBatchRequest) {
+        Product product = productService.findById(createProductBatchRequest.getProductId());
+        User user = userService.findUserById(createProductBatchRequest.getUserId());
+        ProductBatch productBatch = buildNewProductBatch(createProductBatchRequest, product, user);
         return productBatchRepository.save(productBatch);
     }
 
-    private ProductBatch buildNewProductBatch(ProductBatchDto dto, Product product, User user) {
+    private ProductBatch buildNewProductBatch(CreateProductBatchRequest dto, Product product, User user) {
         return ProductBatch.builder()
                 .id(UUID.randomUUID())
                 .user(user)
@@ -67,9 +53,4 @@ public class ProductBatchService {
     public void deleteProductBatchById(UUID id) {
         productBatchRepository.deleteProductById(id);
     }
-
-
-
-
-
 }

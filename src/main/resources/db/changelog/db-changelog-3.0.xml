@@ -18,7 +18,7 @@
             alter table "user" add column user_info_id uuid not null;
             ALTER TABLE "user"
             ADD CONSTRAINT user_info_id_fkey
-            FOREIGN KEY (user_info_id) REFERENCES "user"(id);
+            FOREIGN KEY (user_info_id) REFERENCES user_info(id);
         </sql>
 
     </changeSet>

@@ -26,7 +26,6 @@ public class UserInfoService {
         userInfo.setWeight(weight);
         userInfo.setHeight(height);
         userInfo.setBmr(calculateBmr(sex, weight, height, dateOfBirth));
-
         return userInfoRepository.save(userInfo);
     }
 
@@ -36,12 +35,10 @@ public class UserInfoService {
         int heightParameter = sex == Sex.MALE ? 5 : 2;
         int ageParameter = sex == Sex.MALE ? 7 : 5;
 
-        int age = (int) Instant.now().until(dateOfBirth, ChronoUnit.YEARS);
-
+        int age = (int) Instant.now().until(dateOfBirth, ChronoUnit.DAYS) / 365;
 
         return (baseParameter + (weightParameter * weight) +
                     (heightParameter * height)) -
                     (ageParameter * age);
     }
-
 }

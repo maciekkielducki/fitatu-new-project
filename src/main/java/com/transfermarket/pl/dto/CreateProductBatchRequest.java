@@ -10,7 +10,7 @@ import java.util.UUID;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class ProductBatchDto {
+public class CreateProductBatchRequest {
     private UUID userId;
     private Meal meal;
     private int grams;

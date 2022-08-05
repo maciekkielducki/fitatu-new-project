@@ -10,9 +10,8 @@ import java.util.UUID;
 
 @Repository
 public interface ProductBatchRepository extends JpaRepository<ProductBatch, UUID> {
-    void deleteProductById(UUID id);
 
-    //List<ProductBatch> findAllByUserId(List<Long> ids);
+    void deleteProductById(UUID id);
 
     List<ProductBatch> findAllByUser(User user);
 }
