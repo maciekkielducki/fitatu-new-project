@@ -30,9 +30,8 @@ public class ProductBatchController {
 
     @PostMapping
     public ResponseEntity<ProductBatch> addProductBatch(@RequestBody CreateProductBatchRequest request) {
-        //TODO mapper
         ProductBatch mappedProductBatch = productBatchMapper.mapToNewProductBatch(request);
-        ProductBatch newProductBatch = productBatchService.addProductBatch(request);
+        ProductBatch newProductBatch = productBatchService.addProductBatch(mappedProductBatch);
         return new ResponseEntity<>(newProductBatch, HttpStatus.CREATED);
     }
 

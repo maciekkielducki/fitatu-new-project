@@ -25,8 +25,7 @@ public class UserMapper {
         User user = new User();
         user.setId(UUID.randomUUID());
         user.setUsername(dto.getUsername());
-        user.setPassword(dto.getPassword());
-        user.setDateOfBirth(Instant.now());
+        user.setDateOfBirth(dto.getDateOfBirth());
         return user;
     }
 
