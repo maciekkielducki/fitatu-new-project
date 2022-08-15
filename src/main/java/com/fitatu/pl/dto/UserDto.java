@@ -2,6 +2,7 @@ package com.fitatu.pl.dto;
 
 import com.fitatu.pl.entity.Sex;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.RequiredArgsConstructor;
 
@@ -11,6 +12,7 @@ import java.util.UUID;
 @Data
 @AllArgsConstructor
 @RequiredArgsConstructor
+@Builder
 public class UserDto {
 
     private UUID id;

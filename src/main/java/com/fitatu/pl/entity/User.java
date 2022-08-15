@@ -1,5 +1,6 @@
 package com.fitatu.pl.entity;
 
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -11,6 +12,7 @@ import java.util.UUID;
 @Table(name = "\"user\"")
 @Data
 @NoArgsConstructor
+@Builder
 public class User {
 
     @Id

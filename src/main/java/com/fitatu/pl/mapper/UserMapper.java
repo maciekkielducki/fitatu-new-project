@@ -10,34 +10,32 @@ import java.util.stream.Collectors;
 
 @Component
 public class UserMapper {
-    //todo builder
 
     public User mapToNewUser(CreateUserRequest dto) {
-        User user = new User();
-        user.setId(UUID.randomUUID());
-        user.setUsername(dto.getUsername());
-        user.setPassword(dto.getPassword());
-        user.setDateOfBirth(dto.getDateOfBirth());
-        return user;
+        return User.builder()
+                .id(UUID.randomUUID())
+                .username(dto.getUsername())
+                .password(dto.getPassword())
+                .dateOfBirth(dto.getDateOfBirth()).build();
     }
 
     public User mapToUpdateUser(UpdateUserRequest dto, UUID id) {
-        User user = new User();
-        user.setId(id);
-        user.setUsername(dto.getUsername());
-        user.setDateOfBirth(dto.getDateOfBirth());
-        return user;
+        return User.builder()
+                .id(id)
+                .username(dto.getUsername())
+                .dateOfBirth(dto.getDateOfBirth())
+                .build();
     }
 
     public UserDto mapToUserDto(User user) {
-        UserDto dto = new UserDto();
-        dto.setUsername(user.getUsername());
-        dto.setHeight(user.getUserInfo().getHeight());
-        dto.setWeight(user.getUserInfo().getWeight());
-        dto.setSex(user.getUserInfo().getSex());
-        dto.setDateOfBirth(user.getDateOfBirth());
-        dto.setBmr(user.getUserInfo().getBmr());
-        return dto;
+        return UserDto.builder()
+                .username(user.getUsername())
+                .height(user.getUserInfo().getHeight())
+                .weight(user.getUserInfo().getWeight())
+                .sex(user.getUserInfo().getSex())
+                .dateOfBirth(user.getDateOfBirth())
+                .bmr(user.getUserInfo().getBmr())
+                .build();
     }
 
     public List<UserDto> mapToUserDtos(List<User> entities) {

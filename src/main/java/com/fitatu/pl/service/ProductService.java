@@ -2,7 +2,6 @@ package com.fitatu.pl.service;
 
 import com.fitatu.pl.entity.Product;
 import com.fitatu.pl.entity.ProductInfo;
-import com.transfermarket.pl.entity.*;
 import com.fitatu.pl.exception.ProductNotFoundException;
 import com.fitatu.pl.repository.ProductRepository;
 import lombok.RequiredArgsConstructor;

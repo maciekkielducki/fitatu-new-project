@@ -27,16 +27,14 @@ public class ProductMapper {
     }
 
     public ProductDto mapToProductDto(Product product) {
-        //todo builder
-        ProductDto dto = new ProductDto();
-        dto.setCalories(product.getProductInfo().getCalories());
-        dto.setCarbs(product.getProductInfo().getCarbs());
-        dto.setFats(product.getProductInfo().getFats());
-        dto.setProteins(product.getProductInfo().getProteins());
-        dto.setId(product.getId());
-        dto.setDescription(product.getDescription());
-        dto.setName(product.getName());
-        return dto;
+        return ProductDto.builder()
+                .calories(product.getProductInfo().getCalories())
+                .carbs(product.getProductInfo().getCarbs())
+                .fats(product.getProductInfo().getFats())
+                .proteins(product.getProductInfo().getProteins())
+                .id(product.getId())
+                .description(product.getDescription())
+                .name(product.getName()).build();
     }
 
     public List<ProductDto> mapToProductDtos(List<Product> entities) {
