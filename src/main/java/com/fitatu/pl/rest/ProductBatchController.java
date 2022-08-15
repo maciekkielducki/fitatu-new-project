@@ -1,16 +1,15 @@
-package com.transfermarket.pl.rest;
+package com.fitatu.pl.rest;
 
 
-import com.transfermarket.pl.dto.CreateProductBatchRequest;
-import com.transfermarket.pl.entity.ProductBatch;
-import com.transfermarket.pl.mapper.ProductBatchMapper;
-import com.transfermarket.pl.service.ProductBatchService;
+import com.fitatu.pl.dto.CreateProductBatchRequest;
+import com.fitatu.pl.entity.ProductBatch;
+import com.fitatu.pl.mapper.ProductBatchMapper;
+import com.fitatu.pl.service.ProductBatchService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.time.Instant;
 import java.util.List;
 import java.util.UUID;
 
@@ -30,8 +29,7 @@ public class ProductBatchController {
 
     @PostMapping
     public ResponseEntity<ProductBatch> addProductBatch(@RequestBody CreateProductBatchRequest request) {
-        ProductBatch mappedProductBatch = productBatchMapper.mapToNewProductBatch(request);
-        ProductBatch newProductBatch = productBatchService.addProductBatch(mappedProductBatch);
+        ProductBatch newProductBatch = productBatchService.addProductBatch(request);
         return new ResponseEntity<>(newProductBatch, HttpStatus.CREATED);
     }
 

@@ -1,4 +1,4 @@
-package com.transfermarket.pl.dto;
+package com.fitatu.pl.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

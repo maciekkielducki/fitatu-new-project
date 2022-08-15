@@ -1,18 +1,15 @@
-package com.transfermarket.pl.service;
+package com.fitatu.pl.service;
 
 
-import com.transfermarket.pl.dto.UserDto;
-import com.transfermarket.pl.entity.ProductInfo;
-import com.transfermarket.pl.entity.Sex;
-import com.transfermarket.pl.entity.UserInfo;
-import com.transfermarket.pl.repository.UserInfoRepository;
+import com.fitatu.pl.entity.Sex;
+import com.fitatu.pl.entity.UserInfo;
+import com.fitatu.pl.repository.UserInfoRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
 import java.time.Instant;
 import java.time.temporal.ChronoUnit;
-import java.util.List;
 
 @Service
 @Slf4j

@@ -1,11 +1,10 @@
-package com.transfermarket.pl.rest;
+package com.fitatu.pl.rest;
 
-import com.transfermarket.pl.dto.CreateUserRequest;
-import com.transfermarket.pl.dto.UpdateUserRequest;
-import com.transfermarket.pl.dto.UserDto;
-import com.transfermarket.pl.entity.User;
-import com.transfermarket.pl.mapper.UserMapper;
-import com.transfermarket.pl.service.UserService;
+import com.fitatu.pl.dto.UpdateUserRequest;
+import com.fitatu.pl.dto.CreateUserRequest;
+import com.fitatu.pl.entity.User;
+import com.fitatu.pl.mapper.UserMapper;
+import com.fitatu.pl.service.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

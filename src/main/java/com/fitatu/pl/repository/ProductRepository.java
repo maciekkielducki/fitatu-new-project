@@ -1,12 +1,9 @@
-package com.transfermarket.pl.repository;
+package com.fitatu.pl.repository;
 
-import com.transfermarket.pl.entity.Product;
+import com.fitatu.pl.entity.Product;
 import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.stereotype.Repository;
 
-import java.util.List;
-import java.util.Optional;
 import java.util.UUID;
 
 @Repository

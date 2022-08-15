@@ -1,9 +1,9 @@
-package com.transfermarket.pl.rest;
+package com.fitatu.pl.rest;
 
-import com.transfermarket.pl.dto.ProductDto;
-import com.transfermarket.pl.entity.Product;
-import com.transfermarket.pl.mapper.ProductMapper;
-import com.transfermarket.pl.service.ProductService;
+import com.fitatu.pl.entity.Product;
+import com.fitatu.pl.mapper.ProductMapper;
+import com.fitatu.pl.service.ProductService;
+import com.fitatu.pl.dto.ProductDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

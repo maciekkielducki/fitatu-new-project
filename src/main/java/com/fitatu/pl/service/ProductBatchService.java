@@ -1,12 +1,11 @@
-package com.transfermarket.pl.service;
+package com.fitatu.pl.service;
 
 
-import com.transfermarket.pl.dto.CreateProductBatchRequest;
-import com.transfermarket.pl.entity.Meal;
-import com.transfermarket.pl.entity.Product;
-import com.transfermarket.pl.entity.ProductBatch;
-import com.transfermarket.pl.entity.User;
-import com.transfermarket.pl.repository.ProductBatchRepository;
+import com.fitatu.pl.dto.CreateProductBatchRequest;
+import com.fitatu.pl.entity.Product;
+import com.fitatu.pl.entity.ProductBatch;
+import com.fitatu.pl.entity.User;
+import com.fitatu.pl.repository.ProductBatchRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;

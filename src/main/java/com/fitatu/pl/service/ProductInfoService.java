@@ -1,13 +1,11 @@
-package com.transfermarket.pl.service;
+package com.fitatu.pl.service;
 
 
-import com.transfermarket.pl.entity.ProductInfo;
-import com.transfermarket.pl.repository.ProductInfoRepository;
+import com.fitatu.pl.entity.ProductInfo;
+import com.fitatu.pl.repository.ProductInfoRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
-
-import java.util.List;
 
 @Service
 @Slf4j

@@ -1,4 +1,4 @@
-package com.transfermarket.pl.entity;
+package com.fitatu.pl.entity;
 
 public enum Sex {
     MALE, FEMALE

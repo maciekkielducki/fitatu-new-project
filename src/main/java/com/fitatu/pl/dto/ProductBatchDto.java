@@ -1,8 +1,6 @@
-package com.transfermarket.pl.dto;
+package com.fitatu.pl.dto;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.transfermarket.pl.entity.Meal;
-import com.transfermarket.pl.entity.Product;
+import com.fitatu.pl.entity.Meal;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -19,4 +17,9 @@ public class ProductBatchDto {
     private UUID id;
     private Meal meal;
     private int grams;
+    private ProductDto product;
+    private int calories;
+    private int proteins;
+    private int carbs;
+    private int fats;
 }

@@ -1,7 +1,7 @@
-package com.transfermarket.pl.repository;
+package com.fitatu.pl.repository;
 
 
-import com.transfermarket.pl.entity.ProductInfo;
+import com.fitatu.pl.entity.ProductInfo;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

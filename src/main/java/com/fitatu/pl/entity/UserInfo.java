@@ -1,6 +1,5 @@
-package com.transfermarket.pl.entity;
+package com.fitatu.pl.entity;
 
-import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 

@@ -1,5 +1,5 @@
-package com.transfermarket.pl.dto;
-import com.transfermarket.pl.entity.Sex;
+package com.fitatu.pl.dto;
+import com.fitatu.pl.entity.Sex;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;

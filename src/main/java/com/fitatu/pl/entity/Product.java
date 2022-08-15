@@ -1,7 +1,8 @@
-package com.transfermarket.pl.entity;
+package com.fitatu.pl.entity;
 
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -12,6 +13,7 @@ import java.util.UUID;
 @Data
 @Table(name = "product")
 @NoArgsConstructor
+@Builder
 public class Product {
 
     @Id

@@ -1,29 +1,29 @@
-package com.transfermarket.pl.mapper;
-import com.transfermarket.pl.dto.CreateUserRequest;
-import com.transfermarket.pl.dto.UpdateUserRequest;
-import com.transfermarket.pl.dto.UserDto;
-import com.transfermarket.pl.entity.User;
+package com.fitatu.pl.mapper;
+import com.fitatu.pl.dto.CreateUserRequest;
+import com.fitatu.pl.dto.UpdateUserRequest;
+import com.fitatu.pl.dto.UserDto;
+import com.fitatu.pl.entity.User;
 import org.springframework.stereotype.Component;
-import java.time.Instant;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
+import java.util.stream.Collectors;
 
 @Component
 public class UserMapper {
+    //todo builder
 
     public User mapToNewUser(CreateUserRequest dto) {
         User user = new User();
         user.setId(UUID.randomUUID());
         user.setUsername(dto.getUsername());
         user.setPassword(dto.getPassword());
-        user.setDateOfBirth(Instant.now());
+        user.setDateOfBirth(dto.getDateOfBirth());
         return user;
     }
 
     public User mapToUpdateUser(UpdateUserRequest dto, UUID id) {
         User user = new User();
-        user.setId(UUID.randomUUID());
+        user.setId(id);
         user.setUsername(dto.getUsername());
         user.setDateOfBirth(dto.getDateOfBirth());
         return user;
@@ -41,10 +41,6 @@ public class UserMapper {
     }
 
     public List<UserDto> mapToUserDtos(List<User> entities) {
-        List<UserDto> dtos = new ArrayList<>();
-
-        entities.forEach(entity -> dtos.add(mapToUserDto(entity)));
-
-        return dtos;
+        return entities.stream().map(this::mapToUserDto).collect(Collectors.toList());
     }
 }

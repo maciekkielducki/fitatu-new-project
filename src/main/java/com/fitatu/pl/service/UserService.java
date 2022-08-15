@@ -1,14 +1,12 @@
-package com.transfermarket.pl.service;
+package com.fitatu.pl.service;
 
-import com.transfermarket.pl.dto.UserDto;
-import com.transfermarket.pl.entity.Sex;
-import com.transfermarket.pl.entity.User;
-import com.transfermarket.pl.entity.UserInfo;
-import com.transfermarket.pl.exception.UserNotFoundException;
-import com.transfermarket.pl.repository.UserRepository;
+import com.fitatu.pl.entity.User;
+import com.fitatu.pl.entity.UserInfo;
+import com.fitatu.pl.exception.UserNotFoundException;
+import com.fitatu.pl.repository.UserRepository;
+import com.fitatu.pl.entity.Sex;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 

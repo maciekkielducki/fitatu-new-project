@@ -1,6 +1,6 @@
-package com.transfermarket.pl.dto;
+package com.fitatu.pl.dto;
 
-import com.transfermarket.pl.entity.Meal;
+import com.fitatu.pl.entity.Meal;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;

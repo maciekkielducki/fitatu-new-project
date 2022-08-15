@@ -1,4 +1,4 @@
-package com.transfermarket.pl.exception;
+package com.fitatu.pl.exception;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ResponseStatus;

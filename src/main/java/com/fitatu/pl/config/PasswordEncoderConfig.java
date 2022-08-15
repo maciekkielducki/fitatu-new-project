@@ -1,4 +1,4 @@
-package com.transfermarket.pl.config;
+package com.fitatu.pl.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

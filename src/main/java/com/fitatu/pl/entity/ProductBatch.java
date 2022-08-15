@@ -1,6 +1,5 @@
-package com.transfermarket.pl.entity;
+package com.fitatu.pl.entity;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;

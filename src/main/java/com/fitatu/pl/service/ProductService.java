@@ -1,15 +1,14 @@
-package com.transfermarket.pl.service;
+package com.fitatu.pl.service;
 
-import com.transfermarket.pl.dto.ProductDto;
+import com.fitatu.pl.entity.Product;
+import com.fitatu.pl.entity.ProductInfo;
 import com.transfermarket.pl.entity.*;
-import com.transfermarket.pl.exception.ProductNotFoundException;
-import com.transfermarket.pl.repository.ProductRepository;
-import jdk.jfr.Description;
+import com.fitatu.pl.exception.ProductNotFoundException;
+import com.fitatu.pl.repository.ProductRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
-import javax.lang.model.element.Name;
 import java.util.List;
 import java.util.UUID;
 

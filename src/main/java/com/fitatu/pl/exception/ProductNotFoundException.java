@@ -1,4 +1,4 @@
-package com.transfermarket.pl.exception;
+package com.fitatu.pl.exception;
 
 public class ProductNotFoundException extends RuntimeException {
     public ProductNotFoundException(String message) {
